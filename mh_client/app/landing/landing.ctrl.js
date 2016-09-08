@@ -11,35 +11,45 @@ angular.module("mh")
 			$scope.apiRoot = null;
 			$scope.heading2 = "All Tracks";
 			$scope.artists_heading = "Artists";
-
-			// $scope.stuff = root;
+			$scope.albums_heading = "Albums";
 
 			RootFactory.getApiRoot()
 				.then(
 					root => {
 						// console.log("root", root);
+						$scope.apiRoot = root;
 						$http.get(`${root.tracks}`)
 							.then(
 								res => {
 									$scope.tracks = res.data
 							});
-
 						$timeout();
 					},
 					err => console.log("error", err)
 				)
 				.then(
-					root => {
-						console.log("root", root);
-						$http.get(`${root.artists}`)
+					() => {
+						// console.log("root", root);
+						$http.get(`${$scope.apiRoot.artists}`)
 							.then(
-								res =>{
+								res => {
 									$scope.artists = res.data
 							});
 						$timeout();
 					},
 					err => console.log("error", err)
-				);
+				)
+				.then(
+					() => {
+						$http.get(`${$scope.apiRoot.albums}`)
+							.then(
+								res => {
+									$scope.albums = res.data
+								});
+							$timeout();
+						},
+						err => console.log("error", err)
+					);
 		}
 	]);
 
