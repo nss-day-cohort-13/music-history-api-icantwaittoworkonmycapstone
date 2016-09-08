@@ -19,12 +19,19 @@ angular.module("mh")
 				err => console.log("error: ", err)
 			)
 
-		let addNewArtist = (artist) => {
+		$scope.addNewArtist = (artist) => {
+			console.log("artist: ", artist);
 			if (artist !== null) {
 				RootFactory.getApiRoot()
 					.then(
-						root => ($http.post(`${root}/artists`, {artist_name: artist})),
+						root => {
+							$http.post(root.artists, {artist_name: artist});
+							$timeout()
+						},
 						err => console.log("error: ", err)
+					)
+					.then(
+						window.location.reload()
 					)
 			}
 		}
