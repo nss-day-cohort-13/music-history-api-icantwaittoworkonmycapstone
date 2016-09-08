@@ -1,11 +1,10 @@
 angular.module("mh")
 	.controller("ArtistsCtrl", [
 		"$http",
-		"$routeParams",
 		"$timeout",
 		"$scope",
 		"RootFactory",
-	function ($http, $routeParams, $timeout, $scope, RootFactory) {
+	function ($http, $timeout, $scope, RootFactory) {
 		$scope.headline = "Artists"
 		$scope.artists = null
 
@@ -27,14 +26,18 @@ angular.module("mh")
 						err => console.log("error: ", err)
 					)
 					.then(
-						window.location.reload()
+						res => {
+							$scope.artists.push(res.data);
+							$scope.newArtist = "";
+							$timeout()
+						}
 					)
 			} else {
 				alert("Artist is blank!")
 			}
 		}
 
-		$scope.deleteArtist = (artistId) => {
+		$scope.deleteArtist = (key, artistId) => {
 			console.log("artistId: ", artistId);
 			RootFactory.getApiRoot()
 				.then(
@@ -42,7 +45,9 @@ angular.module("mh")
 					err => console.log("error: ", err)
 				)
 				.then(
-					window.location.reload()
+					res => {
+						$scope.artists.splice(key, 1)
+					}
 				)
 		}
 
