@@ -19,5 +19,14 @@ angular.module("mh")
 				err => console.log("error: ", err)
 			)
 
+		let addNewArtist = (artist) => {
+			if (artist !== null) {
+				RootFactory.getApiRoot()
+					.then(
+						root => ($http.post(`${root}/artists`, {artist_name: artist})),
+						err => console.log("error: ", err)
+					)
+			}
+		}
 
 	}])
