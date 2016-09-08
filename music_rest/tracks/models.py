@@ -1,3 +1,28 @@
 from django.db import models
 
-# Create your models here.
+
+class Artists(models.Model):
+  artist_name = models.CharField(max_length=100)
+
+
+  # This representation is used any time a base string representation
+  # is needed, such as the web browseable API interface provide by
+  # the framework.
+  def __str__(self):
+    return "{}: {}".format(self.id, self.artist_name)
+
+class Albums(models.Model):
+  album_name = models.CharField(max_length=100)
+  artist_ID = models.ForeignKey(Artists, related_name='albums')
+
+
+  def __str__(self):
+    return "{}: {}".format(self.id, self.album_name)
+
+class Tracks(models.Model):
+  track_name = models.CharField(max_length=100)
+  album_ID= models.ForeignKey(Albums, related_name='tracks')
+
+
+  def __str__(self):
+    return "{}: {}".format(self.id, self.track_name)
