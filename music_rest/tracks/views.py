@@ -16,33 +16,16 @@ from tracks.serializers import ArtistsSerializer, AlbumsSerializer, TracksSerial
 
 
 class ArtistsList(viewsets.ModelViewSet):
-    # model = Artists
     queryset = Artists.objects.all()
     serializer_class = ArtistsSerializer
-
-# class ArtistsDetail(viewsets.ModelViewSet):
-#     #builds a route to Artists-detail
-#     model = Artists
-#     queryset = Artists.objects.all()
-#     serializer_class = ArtistsSerializer
-#     lookup_field = 'artist_name'
 
 
 class AlbumsList(viewsets.ModelViewSet):
     queryset = Albums.objects.all()
     serializer_class = AlbumsSerializer
 
-# class AlbumsDetail(viewsets.ModelViewSet):
-#     queryset = Albums.objects.all()
-#     serializer_class = AlbumsSerializer
-#     lookup_field = 'album_name'
-
 
 class TracksList(viewsets.ModelViewSet):
     queryset = Tracks.objects.all()
     serializer_class = TracksSerializer
 
-# class TracksDetail(viewsets.ModelViewSet):
-#     queryset = Tracks.objects.all()
-#     serializer_class = TracksSerializer
-#     lookup_field = 'track_name'
