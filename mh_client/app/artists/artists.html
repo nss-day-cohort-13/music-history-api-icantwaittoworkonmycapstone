@@ -2,10 +2,10 @@
 	<h1>{{ headline }}</h1>
 
 	<ul>
-		<li ng-repeat="artist in artists">
+		<li ng-repeat="(key, artist) in artists">
 			<a href="#/artists/{{ artist.id }}">{{ artist.artist_name }}</a>
 			<button type="click" ng-click="editArtist(artist.id)">Edit</button>
-			<button type="click" ng-click="deleteArtist(artist.id)">Delete</button>
+			<button type="click" ng-click="deleteArtist(key, artist.id)">Delete</button>
 		</li>
 	</ul>
 
