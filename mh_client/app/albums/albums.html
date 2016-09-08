@@ -1,0 +1,18 @@
+<div>
+	<h1>{{ headline }}</h1>
+
+	<ul>
+		<li ng-repeat="(key, album) in albums">
+			<a href="#/albums/{{ album.id }}">{{ album.album_name }}</a>
+			<button type="click" ng-click="deleteAlbum(key, album.id)">Delete</button>
+		</li>
+	</ul>
+
+	<div>
+		<select ng-model="newAlbumArtist">
+			<option ng-repeat="artist in artists"></option>
+		</select>
+		<input type="text" name="newAlbum" ng-model="newAlbum">
+		<button type="click" ng-click="addNewAlbum(newAlbumArtist, newAlbum)">Add Album</button>
+	</div>
+</div>
