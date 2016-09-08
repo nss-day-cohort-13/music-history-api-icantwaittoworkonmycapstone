@@ -47,7 +47,7 @@ angular.module("mh")
 			if (artist !== null && album !== null) {
 				RootFactory.getApiRoot()
 					.then(
-						root => $http.post(root.albums, {album_name: album, artist_ID: artist.url}),
+						root => $http.post(root.albums, {album_name: album, artist_ID: artist}),
 						err => console.log("error: ", err)
 					)
 					.then(
