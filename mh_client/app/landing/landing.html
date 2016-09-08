@@ -13,3 +13,10 @@
 		<a href = "#/artists/{{artist.id}}">{{artist.artist_name}}</a>
 	</li>
 </ul>
+
+<h2>{{albums_heading}}</h2>
+<ul>
+	<li ng-repeat = "album in albums">
+		<a href = "#/albums/{{album.id}}">{{album.album_name}}</a>
+	</li>
+</ul>
