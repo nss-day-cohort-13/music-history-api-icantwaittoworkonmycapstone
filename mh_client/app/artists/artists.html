@@ -1,0 +1,9 @@
+<div>
+	<h1>{{ headline }}</h1>
+
+	<ul>
+		<li ng-repeat="artist in artists">
+			<a href="#/artists/{{ artist.id }}">{{ artist.artist_name }}</a>
+		</li>
+	</ul>
+</div>
