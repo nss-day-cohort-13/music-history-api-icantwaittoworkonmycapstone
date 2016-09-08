@@ -16,7 +16,6 @@ angular.module("mh")
 			RootFactory.getApiRoot()
 				.then(
 					root => {
-						// console.log("root", root);
 						$scope.apiRoot = root;
 						$http.get(`${root.tracks}`)
 							.then(
@@ -29,7 +28,6 @@ angular.module("mh")
 				)
 				.then(
 					() => {
-						// console.log("root", root);
 						$http.get(`${$scope.apiRoot.artists}`)
 							.then(
 								res => {
@@ -52,24 +50,4 @@ angular.module("mh")
 					);
 		}
 	]);
-
-	// RootFactory.getApiRoot()
- //            .then(
- //                root => $http.get(root.animals + $routeParams.animalId),
- //                logError
- //            )
- //            .then(
- //                animalRes => {
- //                    $scope.animal = animalRes.data;
- //                    return $http.get($scope.animal.habitat);
- //                },
- //                logError
- //            )
- //            .then(
- //                habitatRes => {
- //                    $scope.habitat = habitatRes.data;
- //                    $timeout();
- //                },
- //                logError
- //            )
 
