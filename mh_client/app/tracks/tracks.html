@@ -1,0 +1,16 @@
+<div>
+  <h1>{{ headline }}</h1>
+
+  <ul>
+    <li ng-repeat="(key,track) in tracks">
+      <a href="#/tracks/{{ track.id }}">{{ track.track_name }}</a>
+      <button type="click" ng-click="edittrack(track.id)">Edit</button>
+      <button type="click" ng-click="deletetrack(track.id)">Delete</button>
+    </li>
+  </ul>
+
+  <div>
+    <input type="text" name="newTrack" ng-model="newTrack">
+    <button type="click" ng-click="addNewTrack(newTrack)">Add track</button>
+  </div>
+</div>
