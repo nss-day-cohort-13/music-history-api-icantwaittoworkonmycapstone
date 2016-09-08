@@ -1,0 +1,15 @@
+<h1>{{title}}</h1>
+
+<h2>{{heading2}}</h2>
+<ul>
+	<li ng-repeat = "track in tracks">
+		<a href = "#/tracks/{{track.id}}">{{track.track_name}}</a>
+	</li>
+</ul>
+
+<h2>{{artists_heading}}</h2>
+<ul>
+	<li ng-repeat = "artist in artists">
+		<a href = "#/artists/{{artist.id}}">{{artist.artist_name}}</a>
+	</li>
+</ul>
