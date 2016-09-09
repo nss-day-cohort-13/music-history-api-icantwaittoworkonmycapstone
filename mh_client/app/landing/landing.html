@@ -9,12 +9,14 @@
 
 	<select class="select" name="artist" id="artist" ng-model="selectedArtist">
 			<option value="" disabled selected>{{artists_heading}}</option>
-			<option ng-repeat="artist in artists" value="{{artist.artist_name}}">{{artist.artist_name}}</option>
+			<option value="">--</option>
+			<option ng-repeat="artist in artists" value="{{artist.url}}">{{artist.artist_name}}</option>
 	</select>
 
 	<select class="select" name="album" id="album" ng-model="selectedAlbum" >
 			<option value="" disabled selected>{{albums_heading}}</option>
-			<option ng-repeat="album in albums" value="{{album.album_name}}">{{album.album_name}}</option>
+			<option value="">--</option>
+			<option ng-repeat="album in albums" value="{{album.url}}">{{album.album_name}}</option>
 	</select>
 
 
