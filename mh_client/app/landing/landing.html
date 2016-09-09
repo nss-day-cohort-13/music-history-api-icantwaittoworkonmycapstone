@@ -2,12 +2,24 @@
 
 <h2>{{heading2}}</h2>
 <ul>
-	<li ng-repeat = "track in tracks">
+	<li ng-repeat = "track in tracks | filter:selectedArtist | filter:selectedAlbum">
 		<a href = "#/tracks/{{track.id}}">{{track.track_name}}</a>
 	</li>
 </ul>
 
-<h2>{{artists_heading}}</h2>
+	<select class="select" name="artist" id="artist" ng-model="selectedArtist">
+			<option value="" disabled selected>{{artists_heading}}</option>
+			<option ng-repeat="artist in artists" value="{{artist.artist_name}}">{{artist.artist_name}}</option>
+	</select>
+
+	<select class="select" name="album" id="album" ng-model="selectedAlbum" >
+			<option value="" disabled selected>{{albums_heading}}</option>
+			<option ng-repeat="album in albums" value="{{album.album_name}}">{{album.album_name}}</option>
+	</select>
+
+
+
+<!-- <h2>{{artists_heading}}</h2>
 <ul>
 	<li ng-repeat = "artist in artists">
 		<a href = "#/artists/{{artist.id}}">{{artist.artist_name}}</a>
@@ -20,3 +32,4 @@
 		<a href = "#/albums/{{album.id}}">{{album.album_name}}</a>
 	</li>
 </ul>
+ -->
