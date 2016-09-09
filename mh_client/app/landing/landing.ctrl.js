@@ -12,6 +12,8 @@ angular.module("mh")
 			$scope.heading2 = "All Tracks";
 			$scope.artists_heading = "Artists";
 			$scope.albums_heading = "Albums";
+			$scope.selectedArtist = "";
+			$scope.selectedAlbum = "";
 
 			RootFactory.getApiRoot()
 				.then(
@@ -21,6 +23,7 @@ angular.module("mh")
 							.then(
 								res => {
 									$scope.tracks = res.data
+									console.log("tracks", $scope.tracks);
 							});
 						$timeout();
 					},
@@ -47,7 +50,9 @@ angular.module("mh")
 							$timeout();
 						},
 						err => console.log("error", err)
-					);
+				);
+
+
 		}
 	]);
 
